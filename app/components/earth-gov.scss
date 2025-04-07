@@ -45,7 +45,6 @@ header[data-testid='header'] {
   }
   @media screen and (max-width: 63.99em) {
     border: unset;
-
   }
 }
 .usa-header--extended
@@ -96,14 +95,17 @@ header[data-testid='header'] {
   .usa-nav__inner {
     width: unset;
   }
+  .usa-nav__primary button[aria-expanded='true'] > span {
+    text-decoration-thickness: 4px !important;
+    text-underline-offset: 12px;
+    text-decoration-line: underline;
+  }
 }
 @media screen and (max-width: 63.99em) {
   .usa-nav__inner {
     width: 100%;
   }
-}
-.usa-nav__primary button[aria-expanded='true'] > span {
-  text-decoration-thickness: 4px !important;
-  text-underline-offset: 12px;
-  text-decoration-line: underline;
+  .usa-nav__primary button:hover {
+    color: #141414 !important;
+  }
 }
