@@ -14,6 +14,10 @@ header[data-testid='header'],
 .usa-nav__primary button {
   color: #ffffff !important;
 }
+.usa-nav__submenu {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
 .usa-nav__primary > .usa-nav__primary-item > a,
 .usa-nav__primary button {
   text-transform: uppercase !important;
@@ -34,6 +38,15 @@ header[data-testid='header'] {
 
 #dashboard {
   border: 2px white solid;
+  &:hover {
+    background-color: white;
+
+    color: #141414 !important;
+  }
+  @media screen and (max-width: 63.99em) {
+    border: unset;
+
+  }
 }
 .usa-header--extended
   .usa-nav__primary-item
@@ -55,6 +68,13 @@ header[data-testid='header'] {
 .usa-nav__close,
 .usa-nav__submenu-item > .usa-nav__link {
   color: white !important;
+  text-transform: uppercase !important;
+  font-weight: 700;
+}
+.usa-nav__submenu .usa-nav__submenu-item a:hover {
+  text-decoration-thickness: 4px !important;
+  text-underline-offset: 8px;
+  text-decoration-line: underline;
 }
 
 //mobile button
@@ -62,9 +82,28 @@ header[data-testid='header'] {
 .usa-header--extended .usa-nav__primary-item > .usa-nav__link:hover::after {
   background-color: white !important;
 }
+
 .usa-header--extended .usa-navbar {
-  padding-left: 3rem !important;
+  padding-left: 0 !important;
 }
-.usa-header--extended .usa-nav__inner {
-  padding-right: 3rem !important;
+@media screen and (min-width: 63.99em) {
+  .usa-header--extended .usa-nav__inner {
+    padding-right: 3rem !important;
+  }
+  .usa-header--extended .usa-navbar {
+    padding-left: 3rem !important;
+  }
+  .usa-nav__inner {
+    width: unset;
+  }
+}
+@media screen and (max-width: 63.99em) {
+  .usa-nav__inner {
+    width: 100%;
+  }
+}
+.usa-nav__primary button[aria-expanded='true'] > span {
+  text-decoration-thickness: 4px !important;
+  text-underline-offset: 12px;
+  text-decoration-line: underline;
 }
