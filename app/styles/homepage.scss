@@ -12,5 +12,22 @@ main {
   display: flex; 
   flex-direction: column; 
   flex: 1; 
+
+  section {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+
+    .hero {
+      max-width: 800px;
+      margin-left: 90px;
+
+      h2 {
+        text-transform: uppercase;
+      }
+    }
+  }
 }
 

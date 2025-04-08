@@ -1,35 +1,36 @@
 import React from 'react';
+import { Button } from '@trussworks/react-uswds';
 
 const highlights = [
   {
-    id: 'highlight-1',
     title: 'Data for Agriculture',
     buttonLabel: 'Get Started',
     imageSrc: '/images/homepage/highlight-1.jpeg',
   },
+  {
+    title: 'Data for Air Quality',
+    buttonLabel: 'Get Started',
+    imageSrc: '/images/homepage/highlight-2.jpeg',
+  },
 ];
 
 export default function HomePage() {
-  // For now, we are only using the first highlight
-  const currentHighlight = highlights[0];
+  // Randomize which highlight to show
+  const currentHighlight =
+    highlights[Math.floor(Math.random() * highlights.length)];
 
   return (
     <section
       className='homepage'
       style={{
         backgroundImage: `url(${currentHighlight.imageSrc})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
       }}
     >
-      <div className='height-full display-flex flex-column flex-justify-center'>
-        <div>{currentHighlight.title}</div>
-        <button>{currentHighlight.buttonLabel}</button>
+      <div className='hero'>
+        <h2>{currentHighlight.title}</h2>
+        <Button className='usa-button' type='button'>
+          {currentHighlight.buttonLabel}
+        </Button>
       </div>
     </section>
   );
