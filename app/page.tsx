@@ -34,8 +34,13 @@ export default function HomePage() {
       }
     }
 
-    window.addEventListener('load', setSectionHeight);
+    setSectionHeight();
+
     window.addEventListener('resize', setSectionHeight);
+
+    return () => {
+      window.removeEventListener('resize', setSectionHeight);
+    };
   }, []);
 
   return (
