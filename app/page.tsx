@@ -1,39 +1,52 @@
-import React from 'react';
+'use client';
+import React, { useState, useEffect } from 'react';
 import { Link } from '@trussworks/react-uswds';
 import { ArrowForwardIcon } from './components/icons';
 
 const DATA_THEMES = [
-  { title: 'Air Quality', imageSrc: '/images/homepage/highlight-1.jpeg' },
-  { title: 'Agriculture', imageSrc: '/images/homepage/highlight-1.jpeg' },
-  { title: 'Biodiversity', imageSrc: '/images/homepage/highlight-1.jpeg' },
-  { title: 'Disasters', imageSrc: '/images/homepage/highlight-1.jpeg' },
+  { title: 'Air Quality' },
+  { title: 'Agriculture' },
+  { title: 'Biodiversity' },
+  { title: 'Disasters' },
   {
     title: 'Sustainable Energy',
-    imageSrc: '/images/homepage/highlight-1.jpeg',
   },
-  { title: 'Greenhouse Gases', imageSrc: '/images/homepage/highlight-1.jpeg' },
-  { title: 'Sea Level Rise', imageSrc: '/images/homepage/highlight-1.jpeg' },
-  { title: 'Wildfires', imageSrc: '/images/homepage/highlight-1.jpeg' },
-  { title: 'Water Resources', imageSrc: '/images/homepage/highlight-1.jpeg' },
+  { title: 'Greenhouse Gases' },
+  { title: 'Sea Level Rise' },
+  { title: 'Wildfires' },
+  { title: 'Water Resources' },
 ];
 
+const FADE_DURATION = 3000; // Duration in milliseconds
+
 export default function HomePage() {
-  // Randomize which data theme to show
-  const currentHighlight =
-    DATA_THEMES[Math.floor(Math.random() * DATA_THEMES.length)];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  // Rotate themes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % DATA_THEMES.length);
+        setFade(true);
+      }, 500);
+    }, FADE_DURATION);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentHighlight = DATA_THEMES[currentIndex];
 
   return (
-    <section
-      className='homepage'
-      style={{
-        backgroundImage: `url(${currentHighlight.imageSrc})`,
-      }}
-    >
+    <section className='homepage'>
       <div className='hero'>
         <h2>
           Data for
           <br />
-          {currentHighlight.title}
+          <span className={`fade ${fade ? 'fade-in' : 'fade-out'}`}>
+            {currentHighlight.title}
+          </span>
         </h2>
         <Link className='usa-button' href='/dashboard'>
           Get Started
