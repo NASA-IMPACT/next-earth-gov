@@ -23,10 +23,14 @@ main {
     .hero {
       max-width: 800px;
       margin-left: 90px;
+      text-transform: uppercase;
 
       h2 {
-        text-transform: uppercase;
+        color: white;
+        font-size: 68px;
       }
+
+
     }
   }
 }

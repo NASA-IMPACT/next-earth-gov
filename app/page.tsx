@@ -1,23 +1,26 @@
 import React from 'react';
-import { Button } from '@trussworks/react-uswds';
+import { Link } from '@trussworks/react-uswds';
+import { ArrowForwardIcon } from './components/icons';
 
-const highlights = [
+const DATA_THEMES = [
+  { title: 'Air Quality', imageSrc: '/images/homepage/highlight-1.jpeg' },
+  { title: 'Agriculture', imageSrc: '/images/homepage/highlight-1.jpeg' },
+  { title: 'Biodiversity', imageSrc: '/images/homepage/highlight-1.jpeg' },
+  { title: 'Disasters', imageSrc: '/images/homepage/highlight-1.jpeg' },
   {
-    title: 'Data for Agriculture',
-    buttonLabel: 'Get Started',
+    title: 'Sustainable Energy',
     imageSrc: '/images/homepage/highlight-1.jpeg',
   },
-  {
-    title: 'Data for Air Quality',
-    buttonLabel: 'Get Started',
-    imageSrc: '/images/homepage/highlight-2.jpeg',
-  },
+  { title: 'Greenhouse Gases', imageSrc: '/images/homepage/highlight-1.jpeg' },
+  { title: 'Sea Level Rise', imageSrc: '/images/homepage/highlight-1.jpeg' },
+  { title: 'Wildfires', imageSrc: '/images/homepage/highlight-1.jpeg' },
+  { title: 'Water Resources', imageSrc: '/images/homepage/highlight-1.jpeg' },
 ];
 
 export default function HomePage() {
-  // Randomize which highlight to show
+  // Randomize which data theme to show
   const currentHighlight =
-    highlights[Math.floor(Math.random() * highlights.length)];
+    DATA_THEMES[Math.floor(Math.random() * DATA_THEMES.length)];
 
   return (
     <section
@@ -27,10 +30,15 @@ export default function HomePage() {
       }}
     >
       <div className='hero'>
-        <h2>{currentHighlight.title}</h2>
-        <Button className='usa-button' type='button'>
-          {currentHighlight.buttonLabel}
-        </Button>
+        <h2>
+          Data for
+          <br />
+          {currentHighlight.title}
+        </h2>
+        <Link className='usa-button' href='/dashboard'>
+          Get Started
+          <ArrowForwardIcon className='margin-left-05' />
+        </Link>
       </div>
     </section>
   );
