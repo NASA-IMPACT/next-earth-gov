@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const highlights = [
   {
@@ -15,42 +13,18 @@ export default function HomePage() {
   // For now, we are only using the first highlight
   const currentHighlight = highlights[0];
 
-  useEffect(() => {
-    function setSectionHeight() {
-      const header = document.querySelector('header');
-      const footer = document.querySelector('footer');
-      const main = document.querySelector('main');
-
-      if (header && footer && main) {
-        const headerHeight = header.offsetHeight;
-        const footerHeight = footer.offsetHeight;
-        const availableHeight =
-          window.innerHeight - headerHeight - footerHeight;
-
-        document.documentElement.style.setProperty(
-          '--available-height',
-          `${availableHeight}px`,
-        );
-      }
-    }
-
-    setSectionHeight();
-
-    window.addEventListener('resize', setSectionHeight);
-
-    return () => {
-      window.removeEventListener('resize', setSectionHeight);
-    };
-  }, []);
-
   return (
     <section
+      className='homepage'
       style={{
         backgroundImage: `url(${currentHighlight.imageSrc})`,
-        width: '100%',
-        height: 'var(--available-height)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <div className='height-full display-flex flex-column flex-justify-center'>

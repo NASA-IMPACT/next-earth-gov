@@ -52,9 +52,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='minh-viewport display-flex flex-column'>
+        <div className='minh-viewport'>
           <Header />
-          <main id='pagebody' className='flex-fill' tabIndex={-1}>
+          <main id='pagebody' tabIndex={-1}>
             {children}
           </main>
           <Footer />
