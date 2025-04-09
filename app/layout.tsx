@@ -54,7 +54,7 @@ export default function RootLayout({
       <body>
         <div className='minh-viewport display-flex flex-column'>
           <Header />
-          <main id='pagebody' className='flex-fill' tabIndex={-1}>
+          <main id='pagebody' tabIndex={-1}>
             {children}
           </main>
           <Footer />

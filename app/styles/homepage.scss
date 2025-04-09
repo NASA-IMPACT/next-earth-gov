@@ -1,19 +1,41 @@
 @use 'uswds-core/src/styles/functions/units' as spacing;
 
-
-.card--homepage-topstory {
-  height: calc(350px + spacing.units(2));
-  background-size: cover;
+.fade {
+  transition: opacity 0.5s ease-in-out; 
 }
 
-.card--homepage-substory {
-  height: 175px;
-  background-size: cover;
+.fade-in {
+  opacity: 1; 
 }
 
-.card--homepage-substory {
-  &:first-child {
-    margin-bottom: spacing.units(2);
+.fade-out {
+  opacity: 0;
+}
+
+main {
+  display: flex; 
+  flex-direction: column; 
+  flex: 1; 
+
+  section.homepage {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-image: url(/images/homepage/background.jpeg);
+
+    .hero {
+      max-width: 800px;
+      margin-left: 90px;
+      text-transform: uppercase;
+
+      h2 {
+        color: white;
+        font-size: 68px;
+        margin-bottom: 40px;
+      }
+    }
   }
-  
 }
+

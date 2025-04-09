@@ -5,6 +5,7 @@
   $utilities-use-important: true,
   $theme-font-weight-semibold: '600',
   $theme-type-scale-md: 8,
+  $theme-button-border-radius: 0,
   $theme-typeface-tokens:
   (
     baseFontFamily: (
@@ -20,7 +21,6 @@
   $theme-font-type-sans: 'public-sans',
   $theme-color-base-darkest: 'gray-cool-80',
   $theme-color-base-ink: 'gray-cool-90',
-  $theme-color-primary: 'red-50',
   $theme-color-secondary: 'yellow-30',
   $overflow-settings: (
     responsive: true,
