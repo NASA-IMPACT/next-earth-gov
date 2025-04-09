@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='minh-viewport'>
+        <div>
           <Header />
           <main id='pagebody' tabIndex={-1}>
             {children}
