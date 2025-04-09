@@ -1,71 +1,80 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck : until veda-ui fixes its types: NavItem type enum
-import React from 'react';
-import { PageHeader } from '@lib';
-import { NavItem } from '@lib';
-import NasaLogoColor from 'app/components/nasa-logo-color.js';
+'use client';
+import React, { useState } from 'react';
+
 import {
-  DATASET_CATALOG_PATH,
-  EXPLORATION_PATH,
-  STORY_HUB_PATH,
-} from 'app/config';
-import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
-
-export const navItems: NavItem[] = [
-  {
-    id: 'data-catalog',
-    title: 'Data Catalog',
-    to: `/${DATASET_CATALOG_PATH}`,
-    type: 'internalLink',
-  },
-  {
-    id: 'exploration',
-    title: 'Exploration',
-    to: `/${EXPLORATION_PATH}`,
-    type: 'internalLink',
-  },
-  {
-    id: 'stories',
-    title: 'Stories',
-    to: `/${STORY_HUB_PATH}`,
-    type: 'internalLink',
-  },
-];
-
-export const subNavItems: NavItem[] = [
-  {
-    id: 'about',
-    title: 'About',
-    to: '/about',
-    type: 'internalLink',
-  },
-  {
-    id: 'contact-us',
-    title: 'Contact us',
-    actionId: 'open-google-form',
-    type: 'action',
-  },
-];
+  Header as USWDSHeader,
+  Title,
+  NavMenuButton,
+  NavDropDownButton,
+  Menu,
+  PrimaryNav,
+  Search,
+} from '@trussworks/react-uswds';
 
 export default function Header() {
-  return (
-    <VedaUIConfigProvider>
-      <PageHeader
-        title={'Earthdata VEDA Dashboard'}
-        mainNavItems={navItems}
-        subNavItems={subNavItems}
-        logoSvg={
-          <div id='logo-container-link'>
-            {/*
-              USWDS targets only <a> tags for styling links. However when the text is a <span>
-              instead of a link, it does not inherit the color styling (it ends up being white).
-              To fix this, we must add the color inline like this.
-              TODO: Ideally we can address this on the veda-ui side so that the color applies to all elements within the logo.
-            */}
-            <NasaLogoColor />
-          </div>
-        }
+  const [expanded, setExpanded] = useState(false);
+  const onClick = (): void => setExpanded((prvExpanded) => !prvExpanded);
+  const testMenuItems = [
+    <a href='#linkOne' key='one'>
+      Current link
+    </a>,
+    <a href='#linkTwo' key='two'>
+      Simple link Two
+    </a>,
+  ];
+  const [isOpen, setIsOpen] = useState([false, false]);
+  const onToggle = (
+    index: number,
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean[]>>,
+  ): void => {
+    const newIsOpen = [...isOpen];
+    newIsOpen[index] = !newIsOpen[index];
+    setIsOpen(newIsOpen);
+  };
+  const testItemsMenu = [
+    <a href='#about' key='two' className='usa-nav__link text-base-lightest'>
+      <span>About</span>
+    </a>,
+    <>
+      <NavDropDownButton
+        menuId='testDropDownOne'
+        onToggle={(): void => {
+          onToggle(0, setIsOpen);
+        }}
+        isOpen={isOpen[0]}
+        label='Themes'
+        isCurrent={false}
+        className='text-base-lightest'
       />
-    </VedaUIConfigProvider>
+      <Menu
+        key='one'
+        items={testMenuItems}
+        isOpen={isOpen[0]}
+        id='testDropDownOne'
+      />
+    </>,
+    <button key='button' className='text-base-lightest'>
+      Dashboard
+    </button>,
+  ];
+
+  return (
+    <USWDSHeader
+      basic={true}
+      showMobileOverlay={expanded}
+      className='position-sticky'
+    >
+      <div className='usa-nav-container position-sticky top-0 z-200 bg-transparent'>
+        <div className='usa-navbar text-base-lightest'>
+          <Title>Earth.gov</Title>
+          <NavMenuButton onClick={onClick} label='Menu' />
+        </div>
+        <PrimaryNav
+          items={testItemsMenu}
+          mobileExpanded={expanded}
+          onToggleMobileNav={onClick}
+        ></PrimaryNav>
+      </div>
+    </USWDSHeader>
   );
 }
