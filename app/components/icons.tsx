@@ -8,10 +8,10 @@ import React from 'react';
  */
 
 interface IconProps {
-  size?: number; // Width and height of the icon
-  color?: string; // Fill color of the icon
-  className?: string; // Additional CSS classes
-  ariaLabel?: string; // Accessibility label for meaningful icons
+  size?: number;
+  color?: string;
+  className?: string;
+  ariaLabel?: string;
 }
 
 export const ArrowForwardIcon: React.FC<IconProps> = ({

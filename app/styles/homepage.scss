@@ -9,15 +9,15 @@
 }
 
 .fade {
-  transition: opacity 0.5s ease-in-out; // Smooth fade effect
+  transition: opacity 0.5s ease-in-out; 
 }
 
 .fade-in {
-  opacity: 1; // Fully visible
+  opacity: 1; 
 }
 
 .fade-out {
-  opacity: 0; // Fully hidden
+  opacity: 0;
 }
 
 main {
