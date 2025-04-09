@@ -6,13 +6,7 @@
 @forward 'homepage';
 
 body {
-  box-sizing: border-box;  
-
-  & > div:first-child {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-  }
+  box-sizing: border-box;
 }
 
 .veda__hug-reset-container {
