@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 
 import {
+  Button,
   Header as USWDSHeader,
-  Title,
+  Menu,
   NavMenuButton,
   NavDropDownButton,
-  Menu,
   PrimaryNav,
-  Search,
+  Title,
 } from '@trussworks/react-uswds';
 
 export default function Header() {
@@ -31,7 +31,7 @@ export default function Header() {
     newIsOpen[index] = !newIsOpen[index];
     setIsOpen(newIsOpen);
   };
-  const testItemsMenu = [
+  const primaryNavItems = [
     <a href='#about' key='two' className='usa-nav__link text-base-lightest'>
       <span>About</span>
     </a>,
@@ -53,9 +53,9 @@ export default function Header() {
         id='testDropDownOne'
       />
     </>,
-    <button key='button' className='text-base-lightest'>
+    <Button key='button' type='button' outline inverse>
       Dashboard
-    </button>,
+    </Button>,
   ];
 
   return (
@@ -70,7 +70,7 @@ export default function Header() {
           <NavMenuButton onClick={onClick} label='Menu' />
         </div>
         <PrimaryNav
-          items={testItemsMenu}
+          items={primaryNavItems}
           mobileExpanded={expanded}
           onToggleMobileNav={onClick}
         ></PrimaryNav>
