@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [tsconfigPaths(), react()],
   test: {
     environment: 'jsdom',
-    exclude: [...configDefaults.exclude, 'integration', '**/*.spec.ts'], // add your playwright folder/patterns here
+    exclude: [...configDefaults.exclude, '**/integration/**', '**/*.spec.ts'], // add your playwright folder/patterns here
   },
 });

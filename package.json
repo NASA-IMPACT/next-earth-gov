@@ -4,6 +4,7 @@
     "build": "next build",
     "start": "next start",
     "test": "vitest",
+    "test:integration": "playwright test --ui",
     "lint": "next lint",
     "lint:fix": "eslint . --fix",
     "ts-check": "tsc --noEmit",
