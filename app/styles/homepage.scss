@@ -20,6 +20,14 @@
   opacity: 0; // Fully hidden
 }
 
+@media (min-width: spacing.units('desktop')) {
+  .homepage {
+    margin-top: calc(-1 * var(--header-height, 0px)); // Offset to appear behind the header
+    padding-top: var(--header-height, 0px); // Push content down below the header
+  }
+}
+
+
 main {
   display: flex; 
   flex-direction: column; 
@@ -31,7 +39,11 @@ main {
     align-items: center;
     background-size: cover;
     background-position: center;
-    background-image: url(/images/homepage/background.jpeg);
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5), 
+      rgba(0, 0, 0, 0)
+      ), 
+      url(/images/homepage/background.jpeg);
 
     .hero {
       max-width: 800px;

@@ -36,6 +36,26 @@ export default function Header() {
     setExpanded(false);
   }, [pathname]);
 
+  // Set header height as global style var
+  useEffect(() => {
+    const handleResize = () => {
+      const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+
+      // Set CSS custom property on :root or html element
+      document.documentElement.style.setProperty(
+        '--header-height',
+        `${headerHeight}px`,
+      );
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Initial setup
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const dropdownMenuItems = DATA_THEMES.map(({ title }) => {
     const id = title.toLowerCase().replace(/\s+/g, '-');
     const href = `/${id}`;
@@ -60,14 +80,14 @@ export default function Header() {
         isOpen={isDropdownOpen[0]}
         label='Themes'
         isCurrent={false}
-        className='bg-base-darkest text-base-lightest'
+        className={`${isDropdownOpen[0] ? 'bg-base-darkest ' : ''}text-base-lightest`}
       />
       <Menu
         key='themes'
         items={dropdownMenuItems}
         isOpen={isDropdownOpen[0]}
         id='themesDropDown'
-        className='bg-base-darkest text-base-lightest'
+        className={`${isDropdownOpen[0] ? 'bg-base-darkest ' : ''}text-base-lightest`}
       />
     </>,
     <Button key='dashboard' type='button' outline inverse>
@@ -79,7 +99,7 @@ export default function Header() {
     <USWDSHeader
       basic={true}
       showMobileOverlay={isMobileExpanded}
-      className='text-base-white'
+      className='text-base-lightest'
     >
       <div className='usa-nav-container'>
         <div className='usa-navbar '>
@@ -96,7 +116,7 @@ export default function Header() {
           items={primaryNavItems}
           mobileExpanded={isMobileExpanded}
           onToggleMobileNav={onMenuClick}
-          className='bg-base-darkest text-base-lightest'
+          className={`${isMobileExpanded ? 'bg-base-darkest' : ''} text-base-lightest`}
         ></PrimaryNav>
       </div>
     </USWDSHeader>
