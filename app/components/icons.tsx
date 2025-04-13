@@ -36,3 +36,31 @@ export const ArrowForwardIcon: React.FC<IconProps> = ({
     </svg>
   );
 };
+
+export const MenuIcon: React.FC<IconProps> = ({
+  size = 24,
+  color = 'currentColor',
+  className = '',
+  ariaLabel,
+}) => {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 24 24'
+      width={size}
+      height={size}
+      fill={color}
+      className={className}
+      aria-hidden={!ariaLabel}
+      role={ariaLabel ? 'img' : undefined}
+      aria-label={ariaLabel}
+    >
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z'
+        fill={color}
+      />
+    </svg>
+  );
+};
