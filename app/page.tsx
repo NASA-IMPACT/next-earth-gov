@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from '@trussworks/react-uswds';
 import { ArrowForwardIcon } from './components/icons';
 
-const DATA_THEMES = [
+export const DATA_THEMES = [
   { title: 'Air Quality' },
   { title: 'Agriculture' },
   { title: 'Biodiversity' },

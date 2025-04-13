@@ -13,18 +13,7 @@ import {
 } from '@trussworks/react-uswds';
 
 import { MenuIcon } from '../icons';
-
-const THEMES = [
-  'AGRICULTURE',
-  'AIR QUALITY',
-  'BIODIVERSITY',
-  'DISASTERS',
-  'ENERGY',
-  'GREENHOUSE GASES',
-  'SEA LEVEL RISE',
-  'WILDFIRES',
-  'WATER RESOURCES',
-];
+import { DATA_THEMES } from '../../page';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
@@ -47,12 +36,13 @@ export default function Header() {
     setExpanded(false);
   }, [pathname]);
 
-  const dropdownMenuItems = THEMES.map((theme) => {
-    const id = theme.toLowerCase().replace(/\s+/g, '-');
+  const dropdownMenuItems = DATA_THEMES.map(({ title }) => {
+    const id = title.toLowerCase().replace(/\s+/g, '-');
     const href = `/${id}`;
+    const label = title.toUpperCase();
     return (
       <Link href={href} key={id}>
-        {theme}
+        {label}
       </Link>
     );
   });
