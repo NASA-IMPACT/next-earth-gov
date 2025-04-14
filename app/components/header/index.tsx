@@ -16,6 +16,7 @@ import { MenuIcon } from '../icons';
 import { DATA_THEMES } from '../../page';
 import useMobileMenuFix from './use-mobile-menu-fix';
 import useClickOutside from './use-click-outside';
+import useHeaderHeight from './use-header-height';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
@@ -26,6 +27,8 @@ export default function Header() {
   const mobileMenuRef = useMobileMenuFix(isMobileExpanded, setExpanded);
 
   const dropdownRef = useClickOutside(() => setIsDropdownOpen([false, false]));
+
+  const headerRef = useHeaderHeight();
 
   const onToggle = (
     index: number,
@@ -42,26 +45,6 @@ export default function Header() {
   useEffect(() => {
     setExpanded(false);
   }, [pathname]);
-
-  // Set header height as global style var
-  useEffect(() => {
-    const handleResize = () => {
-      const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-
-      // Set CSS custom property on :root or html element
-      document.documentElement.style.setProperty(
-        '--header-height',
-        `${headerHeight}px`,
-      );
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    // Initial setup
-    handleResize();
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const dropdownMenuItems = DATA_THEMES.map(({ title }) => {
     const id = title.toLowerCase().replace(/\s+/g, '-');
@@ -110,25 +93,27 @@ export default function Header() {
   ];
 
   return (
-    <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
-      <div className='usa-nav-container'>
-        <div className='usa-navbar' ref={mobileMenuRef}>
-          <Title>
-            <Link href='/' className='padding-2 text-base-lightest'>
-              Earth.gov
-            </Link>
-          </Title>
-          <NavMenuButton onClick={onMenuClick} label={<MenuIcon />} />
-          {/* NOTE: Can not add custom classNames to <NavMenuButton />,
+    <div ref={headerRef}>
+      <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
+        <div className='usa-nav-container'>
+          <div className='usa-navbar' ref={mobileMenuRef}>
+            <Title>
+              <Link href='/' className='padding-2 text-base-lightest'>
+                Earth.gov
+              </Link>
+            </Title>
+            <NavMenuButton onClick={onMenuClick} label={<MenuIcon />} />
+            {/* NOTE: Can not add custom classNames to <NavMenuButton />,
           it will break both styling and toggle behavior */}
+          </div>
+          <PrimaryNav
+            items={primaryNavItems}
+            mobileExpanded={isMobileExpanded}
+            onToggleMobileNav={onMenuClick}
+            className={`${isMobileExpanded ? 'bg-ink' : ''} text-base-lightest`}
+          ></PrimaryNav>
         </div>
-        <PrimaryNav
-          items={primaryNavItems}
-          mobileExpanded={isMobileExpanded}
-          onToggleMobileNav={onMenuClick}
-          className={`${isMobileExpanded ? 'bg-ink' : ''} text-base-lightest`}
-        ></PrimaryNav>
-      </div>
-    </USWDSHeader>
+      </USWDSHeader>
+    </div>
   );
 }
