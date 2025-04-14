@@ -14,11 +14,18 @@ import {
 
 import { MenuIcon } from '../icons';
 import { DATA_THEMES } from '../../page';
+import useMobileMenuFix from './use-mobile-menu-fix';
+import useClickOutside from './use-click-outside';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
   const onMenuClick = (): void => setExpanded((prvExpanded) => !prvExpanded);
+
   const [isDropdownOpen, setIsDropdownOpen] = useState([false, false]);
+
+  const mobileMenuRef = useMobileMenuFix(isMobileExpanded, setExpanded);
+
+  const dropdownRef = useClickOutside(() => setIsDropdownOpen([false, false]));
 
   const onToggle = (
     index: number,
@@ -71,7 +78,7 @@ export default function Header() {
     <Link href='about' key='about' className='usa-nav__link'>
       <span>About</span>
     </Link>,
-    <>
+    <div ref={dropdownRef} key='themes'>
       <NavDropDownButton
         menuId='themesDropDown'
         onToggle={(): void => {
@@ -83,13 +90,12 @@ export default function Header() {
         className={`${isDropdownOpen[0] ? 'bg-ink ' : ''}text-base-lightest`}
       />
       <Menu
-        key='themes'
         items={dropdownMenuItems}
         isOpen={isDropdownOpen[0]}
         id='themesDropDown'
         className={`${isDropdownOpen[0] ? 'bg-ink ' : ''}text-base-lightest`}
       />
-    </>,
+    </div>,
     <>
       {isMobileExpanded ? (
         <Link href='dashboard' key='dashboard' className='usa-nav__link'>
@@ -106,7 +112,7 @@ export default function Header() {
   return (
     <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
       <div className='usa-nav-container'>
-        <div className='usa-navbar '>
+        <div className='usa-navbar' ref={mobileMenuRef}>
           <Title>
             <Link href='/' className='padding-2 text-base-lightest'>
               Earth.gov
