@@ -70,13 +70,13 @@ export default function Header() {
         isOpen={isDropdownOpen[0]}
         label='Themes'
         isCurrent={false}
-        className={`${isDropdownOpen[0] ? 'bg-ink ' : ''}text-base-lightest`}
+        className={`${isDropdownOpen[0] ? 'bg-ink ' : ''}text-white`}
       />
       <Menu
         items={dropdownMenuItems}
         isOpen={isDropdownOpen[0]}
         id='themesDropDown'
-        className={`${isDropdownOpen[0] ? 'bg-ink ' : ''}text-base-lightest`}
+        className={`${isDropdownOpen[0] ? 'bg-ink ' : ''}text-white`}
       />
     </div>,
     <>
@@ -98,7 +98,7 @@ export default function Header() {
         <div className='usa-nav-container'>
           <div className='usa-navbar' ref={mobileMenuRef}>
             <Title>
-              <Link href='/' className='padding-2 text-base-lightest'>
+              <Link href='/' className='padding-2 text-white'>
                 Earth.gov
               </Link>
             </Title>
@@ -110,7 +110,7 @@ export default function Header() {
             items={primaryNavItems}
             mobileExpanded={isMobileExpanded}
             onToggleMobileNav={onMenuClick}
-            className={`${isMobileExpanded ? 'bg-ink' : ''} text-base-lightest`}
+            className={`${isMobileExpanded ? 'bg-ink' : ''} text-white`}
           ></PrimaryNav>
         </div>
       </USWDSHeader>
