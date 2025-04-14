@@ -68,7 +68,7 @@ export default function Header() {
   });
 
   const primaryNavItems = [
-    <Link href='about' key='about' className='usa-nav__link text-base-lightest'>
+    <Link href='about' key='about' className='usa-nav__link'>
       <span>About</span>
     </Link>,
     <>
@@ -80,14 +80,14 @@ export default function Header() {
         isOpen={isDropdownOpen[0]}
         label='Themes'
         isCurrent={false}
-        className={`${isDropdownOpen[0] ? 'bg-base-darkest ' : ''}text-base-lightest`}
+        className={`${isDropdownOpen[0] ? 'bg-ink ' : ''}text-base-lightest`}
       />
       <Menu
         key='themes'
         items={dropdownMenuItems}
         isOpen={isDropdownOpen[0]}
         id='themesDropDown'
-        className={`${isDropdownOpen[0] ? 'bg-base-darkest ' : ''}text-base-lightest`}
+        className={`${isDropdownOpen[0] ? 'bg-ink ' : ''}text-base-lightest`}
       />
     </>,
     <Button key='dashboard' type='button' outline inverse>
@@ -96,11 +96,7 @@ export default function Header() {
   ];
 
   return (
-    <USWDSHeader
-      basic={true}
-      showMobileOverlay={isMobileExpanded}
-      className='text-base-lightest'
-    >
+    <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
       <div className='usa-nav-container'>
         <div className='usa-navbar '>
           <Title>
@@ -116,7 +112,7 @@ export default function Header() {
           items={primaryNavItems}
           mobileExpanded={isMobileExpanded}
           onToggleMobileNav={onMenuClick}
-          className={`${isMobileExpanded ? 'bg-base-darkest' : ''} text-base-lightest`}
+          className={`${isMobileExpanded ? 'bg-ink' : ''} text-base-lightest`}
         ></PrimaryNav>
       </div>
     </USWDSHeader>

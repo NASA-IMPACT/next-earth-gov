@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='minh-viewport bg-base-darkest text-base-lightest'>
+        <div className='minh-viewport bg-ink text-base-lightest'>
           <Header />
           <main id='pagebody' tabIndex={-1}>
             {children}
