@@ -1,23 +1,15 @@
 @use 'uswds-core/src/styles/functions/units' as spacing;
 
-// At the home page, we want to make sure the header and footer are always 
-// at the top and bottom of the page, respectively.
-.minh-viewport {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
-}
-
 .fade {
-  transition: opacity 0.5s ease-in-out; // Smooth fade effect
+  transition: opacity 0.5s ease-in-out; 
 }
 
 .fade-in {
-  opacity: 1; // Fully visible
+  opacity: 1; 
 }
 
 .fade-out {
-  opacity: 0; // Fully hidden
+  opacity: 0;
 }
 
 @media (min-width: spacing.units('desktop')) {
@@ -33,7 +25,7 @@ main {
   flex-direction: column; 
   flex: 1; 
 
-  section {
+  section.homepage {
     display: flex;
     flex: 1;
     align-items: center;
