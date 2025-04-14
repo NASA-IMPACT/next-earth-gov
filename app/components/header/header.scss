@@ -1,4 +1,5 @@
 @use 'uswds-core/src/styles/functions/utilities' as utils;
+@use 'uswds-core/src/styles/functions/units' as spacing;
 
 /* Specific style overrides for the header */
 
@@ -43,6 +44,37 @@ header {
     // Remove focus outline on non-keyboard focus
     outline: none;
     box-shadow: none;
+  }
+
+  @media (min-width: spacing.units('desktop')) {
+    .usa-nav__submenu {
+      padding: spacing.units(2);
+
+      .usa-nav__submenu-item {
+        padding: spacing.units(1);
+        font-weight: bold;
+      }
+    }
+  }
+
+  @media (max-width: spacing.units('desktop')) {
+    .usa-nav__primary {
+      a:hover, button:hover {
+        background-color: utils.color('base-darkest') !important;
+        color: utils.color('base-lightest') !important;
+      }
+      button[aria-expanded="true"]:after {
+        background-color: utils.color('base-lightest') !important;
+      }
+    }
+
+    .usa-menu-btn {
+      background-color: utils.color('ink') !important;
+      cursor: pointer;
+    }
+    .usa-menu-btn:hover{
+      background-color: utils.color('base-darkest') !important;
+    }
   }
 }
 

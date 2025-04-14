@@ -90,9 +90,17 @@ export default function Header() {
         className={`${isDropdownOpen[0] ? 'bg-ink ' : ''}text-base-lightest`}
       />
     </>,
-    <Button key='dashboard' type='button' outline inverse>
-      Dashboard
-    </Button>,
+    <>
+      {isMobileExpanded ? (
+        <Link href='dashboard' key='dashboard' className='usa-nav__link'>
+          <span>Dashboard</span>
+        </Link>
+      ) : (
+        <Button key='dashboard' type='button' outline inverse>
+          Dashboard
+        </Button>
+      )}
+    </>,
   ];
 
   return (
