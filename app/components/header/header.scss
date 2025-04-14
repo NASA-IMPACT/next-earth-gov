@@ -15,13 +15,29 @@ header {
     background-color: utils.color('white');
   }
 
-  // TODO: This is not working, the underline is still blue
-  .usa-nav__primary-item > .usa-current::after, .usa-header--basic .usa-nav__link:hover::after {
-    background-color: utils.color('white');
+  .usa-nav__primary-item > .usa-current::after , .usa-nav__link:hover::after {
+    background-color: utils.color('white') !important;
   }
-  // TODO: This is not working, there is still a blue outline when elements are clicked
-  .usa-nav__primary-item:focus {
-    outline: 0;
+
+  .usa-nav__primary-item {
+    .usa-nav__link:focus:not(:focus-visible),
+    .usa-nav__submenu-item a:focus:not(:focus-visible) {
+      // Remove focus outline on non-keyboard focus
+      outline: none;
+      box-shadow: none;
+    }
+
+    .usa-button:focus:not(:focus-visible) {
+      // Remove focus outline on non-keyboard focus
+      outline: none;
+      // but keep the white box-shadow of the button outline style
+    }
+  }
+
+  .usa-logo a:focus:not(:focus-visible) {
+    // Remove focus outline on non-keyboard focus
+    outline: none;
+    box-shadow: none;
   }
 }
 

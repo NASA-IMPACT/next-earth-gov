@@ -104,7 +104,7 @@ export default function Header() {
       <div className='usa-nav-container'>
         <div className='usa-navbar '>
           <Title>
-            <Link href='/' className='text-base-lightest'>
+            <Link href='/' className='padding-2 text-base-lightest'>
               Earth.gov
             </Link>
           </Title>
