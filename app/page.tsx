@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Link } from '@trussworks/react-uswds';
-import { ArrowForwardIcon } from './components/icons';
+import { Link, Icon } from '@trussworks/react-uswds';
 
 export const DATA_THEMES = [
   { title: 'Air Quality' },
@@ -50,10 +49,9 @@ export default function HomePage() {
         </h2>
         <Link className='usa-button' href='/dashboard'>
           Get Started
-          <ArrowForwardIcon className='margin-left-05' />
+          <Icon.ArrowForward size={3} className='margin-left-05' />
         </Link>
       </div>
     </section>
   );
 }
-

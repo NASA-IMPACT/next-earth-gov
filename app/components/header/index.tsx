@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {
   Button,
   Header as USWDSHeader,
+  Icon,
   Menu,
   NavMenuButton,
   NavDropDownButton,
@@ -12,7 +13,6 @@ import {
   Title,
 } from '@trussworks/react-uswds';
 
-import { MenuIcon } from '../icons';
 import { DATA_THEMES } from '../../page';
 import useMobileMenuFix from './use-mobile-menu-fix';
 import useClickOutside from './use-click-outside';
@@ -102,9 +102,10 @@ export default function Header() {
                 Earth.gov
               </Link>
             </Title>
-            <NavMenuButton onClick={onMenuClick} label={<MenuIcon />} />
-            {/* NOTE: Can not add custom classNames to <NavMenuButton />,
-          it will break both styling and toggle behavior */}
+            <NavMenuButton
+              onClick={onMenuClick}
+              label={<Icon.Menu size={3} />}
+            />
           </div>
           <PrimaryNav
             items={primaryNavItems}
