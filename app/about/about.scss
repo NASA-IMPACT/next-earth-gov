@@ -13,14 +13,25 @@
   flex-direction: row;
   gap: 2rem; 
   margin-top: 2rem; 
+  position: relative;
 }
 
 .sidebar {
   flex: 1; 
   max-width: 300px;
+  position: sticky;
+  top: var(--page-start-offset); 
+  height: fit-content; 
+  align-self: flex-start;
 }
 
 .content {
   flex: 3;
   max-width: 766px;
+  overflow-y: auto;
+}
+
+.sticky-title {
+  position: sticky;
+  top: 0;
 }

@@ -9,7 +9,7 @@ export default function AboutLayout({
 }) {
   return (
     <div className='about-layout'>
-      <h2>About</h2>
+      <h2 className='sticky-title'>About</h2>
       <div className='about-container'>
         <aside className='sidebar'>
           <AboutSideNav />
