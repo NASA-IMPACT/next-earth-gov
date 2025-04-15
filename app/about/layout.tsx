@@ -19,7 +19,7 @@ export default function AboutLayout({
             </div>
           </div>
         </div>
-        <div className='grid-col-fill padding-top-15'>{children}</div>
+        <div className='grid-col-fill padding-top-15 mdx'>{children}</div>
       </div>
     </div>
   );

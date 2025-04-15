@@ -32,12 +32,15 @@ body {
 }
 
 
-// Temporary fix for MDX Legacy style
-.prose {
+.mdx {
   *:not(h1, h2, h3, h4, h5){
-    line-height: 1.5rem;
+    line-height: 1.6rem;
   }
   h1, h2, h3, h4, h5 {
-    line-height: 1;
+    line-height: 27px;
+  }
+
+  section {
+    padding-bottom: 60px;
   }
 }
