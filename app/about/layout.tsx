@@ -1,5 +1,4 @@
 import React from 'react';
-import './about.scss';
 import AboutSideNav from './side-nav';
 
 export default function AboutLayout({
@@ -8,13 +7,19 @@ export default function AboutLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className='about-layout'>
-      <h2 className='sticky-title'>About</h2>
-      <div className='about-container'>
-        <aside className='sidebar'>
-          <AboutSideNav />
-        </aside>
-        <div className='content'>{children}</div>
+    <div className='grid-container'>
+      <div className='grid-row'>
+        <div className='grid-col-3'>
+          <div className='grid-row position-sticky top-0'>
+            <div>
+              <div className='height-15 grid-row flex-column flex-justify-center'>
+                <h2 className='text-uppercase'>About</h2>
+              </div>
+              <AboutSideNav />
+            </div>
+          </div>
+        </div>
+        <div className='grid-col-fill padding-top-15'>{children}</div>
       </div>
     </div>
   );

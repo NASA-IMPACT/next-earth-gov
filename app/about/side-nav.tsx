@@ -47,23 +47,24 @@ export default function AboutSideNav() {
 
   const activeSection = useActiveSection(sectionIds);
 
-  console.log('activeSection', activeSection);
-
   return (
-    <SideNav
-      items={sectionIds.map((id, i) => (
-        <a
-          key={id}
-          href={`#${id}`}
-          className={
-            activeSection === id || (!activeSection && i == 0)
-              ? 'usa-current'
-              : ''
-          }
-        >
-          {id.charAt(0).toUpperCase() + id.slice(1).replace(/-/g, ' ')}
-        </a>
-      ))}
-    />
+    <aside>
+      <p className='margin-y-2'>On this page</p>
+      <SideNav
+        items={sectionIds.map((id, i) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className={
+              activeSection === id || (!activeSection && i == 0)
+                ? 'usa-current'
+                : ''
+            }
+          >
+            {id.charAt(0).toUpperCase() + id.slice(1).replace(/-/g, ' ')}
+          </a>
+        ))}
+      />
+    </aside>
   );
 }
