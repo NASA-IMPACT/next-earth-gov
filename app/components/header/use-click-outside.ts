@@ -24,7 +24,7 @@ export default function useClickOutside(onClose: () => void) {
     document.addEventListener('click', handleClickOutside);
 
     return () => document.removeEventListener('click', handleClickOutside);
-  }, []);
+  }, [onClose]);
 
   return ref;
 }
