@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+/**
+ * Returns the active section based on the intersection observer.
+ * This hook gets the distance of the section from the top of the page and
+ * returns the section with the smallest distance.
+ *
+ * @param sectionIds - The ids of the sections to observe
+ * @returns The active section
+ */
 export default function useActiveSection(sectionIds: string[]) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 

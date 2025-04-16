@@ -1,19 +1,19 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SideNav } from '@trussworks/react-uswds';
 import useActiveSection from '@utils/hooks/use-active-section';
 
 export default function AboutSideNav() {
-  const sectionIds = [
-    'why',
-    'resources',
-    'purpose',
-    'team',
-    'datasets',
-    'application',
-    'next',
-    'feedback',
-  ];
+  const [sectionIds, setSectionIds] = useState<string[]>([]);
+
+  // On page mount, get the ids of h3 elements, which should be the topmost
+  // headers on the MDX page.
+  useEffect(() => {
+    const ids = Array.from(document.querySelectorAll('h3'))
+      .map((h3) => h3.id)
+      .filter(Boolean);
+    setSectionIds(ids);
+  }, []);
 
   const activeSection = useActiveSection(sectionIds);
 
