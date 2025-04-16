@@ -10,19 +10,19 @@ header {
   Seems like a bug in the uswds library.
   */
   .usa-nav__primary button[aria-expanded=false] span:after {
-    background-color: utils.color('base-lightest');
+    background-color: utils.color('white');
   }
   .usa-nav__primary button[aria-expanded=false]:hover span::after {
-    background-color: utils.color('base-lightest');
+    background-color: utils.color('white');
   }
 
   .usa-nav__primary-item > .usa-current::after , .usa-nav__link:hover::after {
-    background-color: utils.color('base-lightest') !important;
+    background-color: utils.color('white') !important;
   }
 
   .usa-nav__primary-item {
     .usa-nav__link, .usa-button {
-      color: utils.color('base-lightest') !important;
+      color: utils.color('white') !important;
       text-transform: uppercase;
     }
 
@@ -61,10 +61,10 @@ header {
     .usa-nav__primary {
       a:hover, button:hover {
         background-color: utils.color('base-darkest') !important;
-        color: utils.color('base-lightest') !important;
+        color: utils.color('white') !important;
       }
       button[aria-expanded="true"]:after {
-        background-color: utils.color('base-lightest') !important;
+        background-color: utils.color('white') !important;
       }
     }
 
