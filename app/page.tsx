@@ -41,13 +41,13 @@ export default function HomePage() {
   return (
     <section className='homepage'>
       <div className='hero'>
-        <h2>
+        <h1>
           Data for
           <br />
           <span className={`fade ${fade ? 'fade-in' : 'fade-out'}`}>
             {currentHighlight.title}
           </span>
-        </h2>
+        </h1>
         <Link className='usa-button' href='/dashboard'>
           Get Started
           <ArrowForwardIcon className='margin-left-05' />
@@ -56,4 +56,3 @@ export default function HomePage() {
     </section>
   );
 }
-
