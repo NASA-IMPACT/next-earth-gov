@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Link, Icon } from '@trussworks/react-uswds';
+import { Icon, Link } from '@trussworks/react-uswds';
 
 export const DATA_THEMES = [
   { title: 'Air Quality' },
@@ -40,16 +40,20 @@ export default function HomePage() {
   return (
     <section className='homepage'>
       <div className='hero'>
-        <h2>
+        <h1>
           Data for
           <br />
           <span className={`fade ${fade ? 'fade-in' : 'fade-out'}`}>
             {currentHighlight.title}
           </span>
-        </h2>
+        </h1>
         <Link className='usa-button' href='/dashboard'>
           Get Started
-          <Icon.ArrowForward size={3} className='margin-left-05' />
+          <Icon.ArrowForward
+            size={3}
+            className='margin-left-05'
+            aria-hidden='true'
+          />
         </Link>
       </div>
     </section>

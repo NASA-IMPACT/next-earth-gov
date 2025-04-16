@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { parseAttributes } from '../../app/content/utils/mdx';
+import { parseAttributes } from './mdx';
 
 const TestMDXObject = {
   id: 'dataset-id',
