@@ -70,13 +70,13 @@ export default function AboutSideNav() {
           <a
             key={id}
             href={`#${id}`}
-            className={
+            className={`text-capitalize ${
               activeSection === id || (!activeSection && i == 0)
                 ? 'usa-current'
                 : ''
-            }
+            }`}
           >
-            {id.charAt(0).toUpperCase() + id.slice(1).replace(/-/g, ' ')}
+            {id}
           </a>
         ))}
       />

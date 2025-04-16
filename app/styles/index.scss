@@ -27,6 +27,10 @@ body {
   height: 100%;
 }
 
+// USWDS does not provide a text-capitalize utility class, so we'll add one here
+.text-capitalize {
+  text-transform: capitalize;
+}
 
 .mdx {
   *:not(h1, h2, h3, h4, h5){
