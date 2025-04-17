@@ -1,5 +1,6 @@
 import React from 'react';
 import AboutSideNav from './side-nav';
+import './about.scss';
 
 export default function AboutLayout({
   children,
@@ -7,20 +8,22 @@ export default function AboutLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className='grid-container'>
-      <div className='grid-row'>
-        <div className='grid-col-3'>
-          <div className='grid-row position-sticky top-0'>
-            <div>
-              <div className='height-15 grid-row flex-column flex-justify-center'>
-                <h1 className='text-uppercase'>About</h1>
-              </div>
-              <AboutSideNav />
-            </div>
-          </div>
-        </div>
-        <div className='grid-col-fill padding-top-15 mdx'>{children}</div>
+    <div className='wrapper'>
+      <div className='title'>
+        <h1 className='text-uppercase'>About</h1>
       </div>
+      <div className='sidenav'>
+        {/* Sidenav for mobile view - collapsed style */}
+        <div className='mobile-sidenav'>
+          <AboutSideNav />
+        </div>
+
+        {/* Sidenav for desktop view - expanded style */}
+        <div className='desktop-sidenav'>
+          <AboutSideNav />
+        </div>
+      </div>
+      <div className='content'>{children}</div>
     </div>
   );
 }

@@ -41,11 +41,11 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <div className='minh-viewport display-flex flex-column'>
-          {/* <Header /> */}
+          <div className='header-placeholder'>HEADER</div>
           <main id='pagebody' tabIndex={-1}>
             {children}
           </main>
-          {/* <Footer /> */}
+          <div className='footer-placeholder'>FOOTER</div>
         </div>
       </body>
     </html>
