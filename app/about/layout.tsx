@@ -13,7 +13,7 @@ export default function AboutLayout({
           <div className='grid-row position-sticky top-0'>
             <div>
               <div className='height-15 grid-row flex-column flex-justify-center'>
-                <h2 className='text-uppercase'>About</h2>
+                <h1 className='text-uppercase'>About</h1>
               </div>
               <AboutSideNav />
             </div>
