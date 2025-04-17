@@ -4,6 +4,8 @@ import { baseUrl } from './sitemap';
 import './styles/index.scss';
 import '@teamimpact/veda-ui/lib/main.css';
 
+import Header from './components/header';
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl ?? ''),
   title: {
@@ -40,12 +42,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='minh-viewport display-flex flex-column'>
-          {/* <Header /> */}
+        <div className='minh-viewport display-flex flex-column bg-ink text-white'>
+          <Header />
           <main id='pagebody' tabIndex={-1}>
             {children}
           </main>
-          {/* <Footer /> */}
         </div>
       </body>
     </html>
